@@ -1,6 +1,17 @@
+const http = require('http');
+const express = require('express');
+const app = express();
+app.get("/", (request, response) => {
+  console.log(Date.now() + " Ping Received");
+  response.sendStatus(200);
+});
+app.listen(process.env.PORT);
+setInterval(() => {
+  http.get(`http://${process.env.PROJECT_DOMAIN}.glitch.me/`);
+}, 280000);
+
 const Discord = require('discord.js');
 const client = new Discord.Client();
-const settings = require('./settings.json');
 const fs = require('fs');
 const moment = require('moment');
 require('./util/eventLoader')(client);
@@ -48,12 +59,12 @@ client.elevation = message => {
   /* This function should resolve to an ELEVATION level which
      is then sent to the command handler for verification*/
   let permlvl = 0;
-  let mod_role = message.guild.roles.find('name', settings.modrolename);
+  let mod_role = message.guild.roles.find('name', "Mod");
   if (mod_role && message.member.roles.has(mod_role.id)) permlvl = 2;
-  let admin_role = message.guild.roles.find('name', settings.adminrolename);
+  let admin_role = message.guild.roles.find('name', "Bot Commander");
   if (admin_role && message.member.roles.has(admin_role.id)) permlvl = 3;
-  if (message.author.id === settings.ownerid) permlvl = 4;
+  if (message.author.id === process.env.OWNERID) permlvl = 4;
   return permlvl;
 };
 
-client.login(settings.token);
+client.login(process.env.TOKEN);

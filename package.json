@@ -4,7 +4,11 @@
   "description": "Bermuda bot for Bot-Nation",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "8.9.2"
   },
   "keywords": [],
   "author": "AliRaish",
@@ -13,6 +17,8 @@
     "chalk": "^2.3.0",
     "discord.js": "^11.3.0",
     "moment": "^2.20.1",
-    "return-deep-diff": "^0.2.9"
+    "return-deep-diff": "^0.2.9",
+    "express": "^4.16.2",
+    "urban-dictionary": "^1.0.6"
   }
 }

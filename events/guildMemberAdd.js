@@ -1,4 +1,14 @@
-module.exports = member => {
+const Discord = require('discord.js');
+
+module.exports = (member, message, client) => {
   let guild = member.guild;
-  guild.channels.get('355729472600801280').send(`Please welcome **${member.user.username}** to the server!`);
+  
+    const embed = new Discord.RichEmbed()
+    .setAuthor('Member Joined', `${member.user.avatarURL}`)
+    .setColor(8311585)
+    .setTimestamp()
+    .setThumbnail(`${member.user.avatarURL}`)
+    .setDescription(`<@${member.user.id}> ${member.user.tag}`)
+    .setFooter(`ID: ${member.user.id}`);
+  return guild.channels.get('414796308587741205').send({embed: embed});
 };

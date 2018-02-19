@@ -1,7 +1,7 @@
 exports.run = (client, message) => {
   message.channel.send('Ping?')
     .then(msg => {
-      msg.edit(`Pong! (took: ${msg.createdTimestamp - message.createdTimestamp}ms)`);
+      msg.edit(`Pong! Latency is ${msg.createdTimestamp - message.createdTimestamp}ms. API Latency is ${Math.round(client.ping)}ms`);
     });
 };
 

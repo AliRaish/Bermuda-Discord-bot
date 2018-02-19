@@ -3,8 +3,8 @@ const Discord = require('discord.js');
 module.exports = (guild, user) => {
   
     const embed = new Discord.RichEmbed()
-    .setAuthor('Member Banned', `${user.avatarURL}`)
-    .setColor(13632027)
+    .setAuthor('Member Unbanned', `${user.avatarURL}`)
+    .setColor(8311585)
     .setTimestamp()
     .setThumbnail(`${user.avatarURL}`)
     .setDescription(`<@${user.id}> ${user.tag}`)
