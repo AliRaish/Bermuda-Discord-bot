@@ -16,7 +16,6 @@
     "ms": "^2.1.1",
     "random-anime-wallpapers": "^1.1.0",
     "request": "^2.83.0",
-    "return-deep-diff": "^0.2.9",
     "snekfetch": "^3.6.4",
     "urban-dictionary": "^1.0.6"
   }

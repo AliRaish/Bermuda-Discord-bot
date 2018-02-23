@@ -7,11 +7,11 @@ exports.run = (client, message, args) => {
 
   if (!definition) return message.channel.send('Please give a term');
 
-  ud.term(definition, function (error, entries) {
+  ud.term(definition, function(error, entries) {
     if (error) {
       console.error(error.message);
     } else {
-      let embed = new Discord.RichEmbed()
+      const embed = new Discord.RichEmbed()
         .setAuthor(entries[0].word + ' by ' + entries[0].author)
         .setDescription(entries[0].definition)
         .setColor(4886754)

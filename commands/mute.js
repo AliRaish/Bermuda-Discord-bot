@@ -1,10 +1,10 @@
 const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-  let reason = args.slice(1).join(' ');
-  let user = message.mentions.users.first();
-  let modlog = client.channels.find('name', 'bermuda-log');
-  let muteRole = client.guilds.get(message.guild.id).roles.find('name', '🔇Muted');
+  const reason = args.slice(1).join(' ');
+  const user = message.mentions.users.first();
+  const modlog = client.channels.find('name', 'bermuda-log');
+  const muteRole = client.guilds.get(message.guild.id).roles.find('name', '🔇Muted');
   if (!modlog) return message.reply('I cannot find a mod-log channel');
   if (!muteRole) return message.reply('I cannot find a mute role');
   if (reason.length < 1) return message.reply('You must supply a reason for the mute!');
@@ -17,9 +17,9 @@ exports.run = (client, message, args) => {
     .setDescription(`**Target:** ${user.tag}\n**Reason:** ${reason}`)
     .setFooter(`ID: ${user.id}`, `${user.avatarURL}`);
 
-  if(!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('I do not have the correct permissions.').catch(console.error);
+  if (!message.guild.member(client.user).hasPermission('MANAGE_ROLES_OR_PERMISSIONS')) return message.reply('I do not have the correct permissions.').catch(console.error);
 
-  if(message.guild.member(user).roles.has(muteRole.id)) {
+  if (message.guild.member(user).roles.has(muteRole.id)) {
     message.guild.member(user).removeRole(muteRole).then(()=>{
       client.channels.get(modlog.id).send({embed: embed});
     });
