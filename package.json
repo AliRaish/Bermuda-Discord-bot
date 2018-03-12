@@ -14,10 +14,9 @@
   "author": "AliRaish",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^2.3.0",
+    "chalk": "^2.3.1",
     "discord.js": "^11.3.0",
     "moment": "^2.20.1",
-    "return-deep-diff": "^0.2.9",
     "express": "^4.16.2",
     "urban-dictionary": "^1.0.6"
   }
