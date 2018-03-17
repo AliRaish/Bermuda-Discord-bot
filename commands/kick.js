@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   if (!modlog) return message.reply('I cannot find a mod-log channel');
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to kick them.').catch(console.error);
 
-  // message.guild.member(user).kick();
+  message.guild.member(user).kick();
   message.channel.send('Successfully kicked user!');
 
   const reason = args.splice(1, args.length).join(' ') || `Awaiting moderator's input. Use ${settings.prefix}reason ${caseNum} <reason>.`;
