@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
   const caseNum = await caseNumber(client, modlog);
   if (!modlog) return message.reply('I cannot find a mod-log channel');
   if (message.mentions.users.size < 1) return message.reply('You must mention someone to warn them.').catch(console.error);
-  
+
   const reason = args.splice(1, args.length).join(' ') || `Awaiting moderator's input. Use ${settings.prefix}reason ${caseNum} <reason>.`;
   const embed = new RichEmbed()
     .setAuthor(`${message.author.tag} | Warn`, `${message.author.avatarURL}`)

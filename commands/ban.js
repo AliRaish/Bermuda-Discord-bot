@@ -1,14 +1,14 @@
 const {RichEmbed} = require('discord.js');
 const {caseNumber} = require('../util/caseNumber.js');
+const {parseUser} = require('../util/parseUser.js');
 const settings = require('../settings.json');
 exports.run = async (client, message, args) => {
   const user = message.mentions.users.first();
+  parseUser(message, user);
   const modlog = client.channels.find('name', 'bermuda-log');
   const caseNum = await caseNumber(client, modlog);
   if (!modlog) return message.reply('I cannot find a mod-log channel');
   if (message.mentions.users.size < 1) return message.reply('You must mention a user!').catch(console.error);
-
-  if (!message.guild.member(user).bannable) return message.reply('I cannot ban that member');
   // message.guild.ban(user, 2);
   message.channel.send('Successfully banned user!');
 
